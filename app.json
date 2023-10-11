@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "NotUyarX",
+    "slug": "notuyarx",
+    "plugins": ["./config/withSplashWindowIsTranslucent.js"],
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "notification": {
+      "icon": "./assets/notification-icon.png",
+      "color": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.bitmastersx.notuyarx",
+      "versionCode": 2
+    },
+    "extra": {
+      "eas": {
+        "projectId": "37f8b758-c3c2-49b7-aa73-e2bfd370dd83"
+      }
+    }
+  }
+}

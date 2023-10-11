@@ -1,0 +1,85 @@
+{
+  "App": {
+    "exitTitle": "Çıkış",
+    "exitMessage": "Çıkmak istiyor musunuz?",
+    "exitMessageBackground": "Çıkmak istiyor musunuz? Uygulama arka planda çalışmaya devam edecek.",
+    "exitButtonYes": "Evet",
+    "exitButtonNo": "Hayır"
+  },
+  "Welcome": {
+    "appTagline": "NotUyarX, Akademik Başarıları Takip Etmenin Anahtarı!",
+    "startButton": "Hemen Başla"
+  },
+  "Login": {
+    "loginTitle": "Giriş Yap",
+    "loginMessageUniversity": "Üniversitenizi Seçin",
+    "universitySearchPlaceHolder": "Ara",
+    "universityError": "Lütfen bir üniversite seçin",
+    "studentId": "Öğrenci Numarası",
+    "studentIdPlaceHolder": "Öğrenci numaranız",
+    "studentUsername": "Kullanıcı Adı",
+    "studentUsernamePlaceHolder": "Kullanıcı Adı",
+    "studentIdError": "Lütfen öğrenci numarası giriniz",
+    "usernameError": "Lütfen Kullanıcı adı giriniz",
+    "loginPassword": "Şifre",
+    "passwordPlaceHolder": "Şifreniz",
+    "passwordError": "Lütfen şifrenizi giriniz",
+    "loginButton": "Giriş Yap"
+  },
+  "Main": {
+    "iconTitleChecker": "NotUyarısı",
+    "iconTitleMarks": "Notlar",
+    "iconTitleMarksSimulator": "NotSimülatörü",
+    "stickyNotificationTitle": "Not Uyarısı",
+    "stickyNotificationMessage": "Uygulama arka planda çalışıyor",
+    "messageRegisterCourse": "Kayıtlı herhangi bir dersiniz bulunmamaktadır."
+  },
+  "Header": {
+    "exitTitle": "Çıkış",
+    "exitMessageInterval": "Oturumu kapatmak istediğinizden emin misiniz? İşaret uyarısı çalışmayı durduracak.",
+    "exitMessage": "Oturumu kapatmak istediğinizden emin misiniz?",
+    "logoutButtonYes": "Evet",
+    "logoutButtonNo": "Hayır"
+  },
+  "MarksAlert": {
+    "marksAlertTitle": "Not Uyarısı",
+    "customInterval": "Özel Aralık",
+    "save": "Kaydet",
+    "minutes": "dk",
+    "durationError": "1-60 dk*",
+    "freeOption": "30 dk",
+    "buttonTitleStart": "Başlat",
+    "buttonTitleStop": "Durdur",
+    "saveCustomIntervalError": "Lütfen özel aralığı kaydedin.",
+    "warningTitle": "Uyarı",
+    "notificationPermissionWarningMessage": "Uygulamanın düzgün çalışabilmesi için bildirimlere erişim izni vermeniz gerekmektedir.",
+    "batteryWarningMessage": "5 dakikadan daha kısa bir süre seçmek, telefon şarjınızı daha hızlı tüketebilir.",
+    "batteryOptimizationWarningMessage": "NotUyarX için pil optimizasyon ayarlarınız açık, bu da uygulamanın arka planda düzgün çalışmasını engelleyebilir. Lütfen ayarlardan kapatın.",
+    "optimizationSettingsButton": "Optimizasyon Ayarları",
+    "laterButton": "Daha Sonra",
+    "messageAllCompleted": "Tüm notlar açıklanmış!",
+    "messageIntervalStart": "Yeni notları kontrol etmeye başlamak için uygulamayı kapatın.",
+    "alertButton": "Tamam"
+  },
+  "Marks": {
+    "marksTitle": "Notlar"
+  },
+  "MarksSimulator": {
+    "marksSimulatorTitle": "Not Simülatörü",
+    "gpa": "ANO",
+    "cgpa": "AGNO",
+    "tableHeaderLessonName": "Ders Adı",
+    "tableHeaderLessonLetter": "Harf Notu"
+  },
+  "Notifications": {
+    "announced": "notu açıklandı!",
+    "finalized": "sonuçlandırılmıştır!"
+  },
+  "handleBackgroundTask": {
+    "errorNotificationTitle": "Hata",
+    "loginError": "Şifreniz değiştirildi. Lütfen tekrar giriş yapın.",
+    "captchaError": "Captcha hatalı. Lütfen tekrar deneyin.",
+    "sessionExpiredError": "Oturumun süresi doldu",
+    "checkingMarks": "Notlar kontrol ediliyor..."
+  }
+}

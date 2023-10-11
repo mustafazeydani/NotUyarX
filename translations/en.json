@@ -1,0 +1,85 @@
+{
+  "App": {
+    "exitTitle": "Exit",
+    "exitMessage": "Do you want to exit?",
+    "exitMessageBackground": "Do you want to exit? The app will continue running in the background.",
+    "exitButtonYes": "Yes",
+    "exitButtonNo": "No"
+  },
+  "Welcome": {
+    "appTagline": "NotUyarX, Your Key to Tracking Academic Achievements!",
+    "startButton": "Get Started"
+  },
+  "Login": {
+    "loginTitle": "Login",
+    "loginMessageUniversity": "Select Your University",
+    "universitySearchPlaceHolder": "Search",
+    "universityError": "Please select a university",
+    "studentId": "Student ID",
+    "studentIdPlaceHolder": "Your ID",
+    "studentUsername": "Student Username",
+    "studentUsernamePlaceHolder": "Your Username",
+    "studentIdError": "Please enter your student ID",
+    "usernameError": "Please enter your student username",
+    "loginPassword": "Password",
+    "passwordPlaceHolder": "Your password",
+    "passwordError": "Please enter your password",
+    "loginButton": "Login"
+  },
+  "Main": {
+    "iconTitleChecker": "MarksAlert",
+    "iconTitleMarks": "Marks",
+    "iconTitleMarksSimulator": "MarksSimulator",
+    "stickyNotificationTitle": "Marks Alert",
+    "stickyNotificationMessage": "The app is running in the background.",
+    "messageRegisterCourse": "You don't have any registered courses."
+  },
+  "Header": {
+    "exitTitle": "Logout",
+    "exitMessageInterval": "Are you sure you want to logout? The Marks Alert will be turned off",
+    "exitMessage": "Are you sure you want to logout?",
+    "logoutButtonYes": "Yes",
+    "logoutButtonNo": "No"
+  },
+  "MarksAlert": {
+    "marksAlertTitle": "Marks Alert",
+    "customInterval": "Custom Interval",
+    "save": "Save",
+    "minutes": "mins",
+    "durationError": "1-60 mins*",
+    "freeOption": "30 mins",
+    "buttonTitleStart": "Start",
+    "buttonTitleStop": "Stop",
+    "saveCustomIntervalError": "Save custom interval first.",
+    "warningTitle": "Warning",
+    "notificationPermissionWarningMessage": "You need to approve notifications access for the app to be functional.",
+    "batteryWarningMessage": "Choosing an interval duration of 5 mins or less might drain your battery faster.",
+    "batteryOptimizationWarningMessage": "Your battery optimization settings for NotUyarX is turned on which might prevent the app from running properly in the background. Please turn it off from the settings.",
+    "optimizationSettingsButton": "Optimization Settings",
+    "laterButton": "Later",
+    "messageAllCompleted": "All marks are out!",
+    "messageIntervalStart": "Close the app to start checking for new marks.",
+    "alertButton": "Ok"
+  },
+  "Marks": {
+    "marksTitle": "Marks"
+  },
+  "MarksSimulator": {
+    "marksSimulatorTitle": "Marks Simulator",
+    "gpa": "GPA",
+    "cgpa": "CGPA",
+    "tableHeaderLessonName": "Lesson Name",
+    "tableHeaderLessonLetter": "Letter"
+  },
+  "Notifications": {
+    "announced": "mark has been announced!",
+    "finalized": "finalized!"
+  },
+  "handleBackgroundTask": {
+    "errorNotificationTitle": "Error",
+    "loginError": "Your password has been changed. Please login again.",
+    "captchaError": "Captcha error. Please login again.",
+    "sessionExpiredError": "Session has expired.",
+    "checkingMarks": "Checking Marks..."
+  }
+}
