@@ -35,27 +35,6 @@ export const getMarks = async (host, path, cookies, mainUrl) => {
     $ = Cheerio.load(notListResponse.data);
   }
 
-  const viewstate = $('#__VIEWSTATE').attr('value');
-  const formAction = $('#form1').attr('action');
-  notListResponse = await axios.post(
-    `${host}/oibs/ogrenci/${formAction}`,
-    {
-      __EVENTTARGET: 'cmbDonemler',
-      __VIEWSTATE: viewstate,
-      cmbDonemler: '20222',
-    },
-    {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Cookie: cookies,
-        Referer: mainUrl,
-      },
-      withCredentials: false,
-    },
-  );
-
-  $ = Cheerio.load(notListResponse.data);
-
   const dersAdi = [];
   const durum = [];
   const allExams = [];
