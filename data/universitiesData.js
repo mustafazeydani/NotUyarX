@@ -371,6 +371,12 @@ const uniList = [
       logo: require('../assets/uni-logos/beun.png'),
       id: 'number',
     },
+    {
+      name: 'OSTİM TEKNİK ÜNİVERSİTESİ',
+      host: 'https://obs.ostimteknik.edu.tr',
+      logo: require('../assets/uni-logos/ostimteknik.png'),
+      id: 'name',
+    }
 ];
 
 export const universities = uniList.sort((a, b) => a.name.localeCompare(b.name));
