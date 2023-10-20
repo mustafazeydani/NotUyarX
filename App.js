@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BackHandler, Alert } from 'react-native';
+import { BackHandler, Alert, StatusBar, Platform } from 'react-native';
 import AppNavigator from './AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthProvider } from './context/AuthContext';
@@ -17,6 +17,14 @@ export default function App() {
       if (value !== null) Notifications.dismissNotificationAsync(JSON.parse(value));
     });
   }, []);
+
+  // Fix top white padding shown in production
+  useEffect(() => {
+    if (Platform.OS === "android") {
+      StatusBar.setBackgroundColor("transparent");
+      StatusBar.setTranslucent(true);
+    }
+  })
 
   const backPressed = async () => {
     const isIntervalOn = JSON.parse(await AsyncStorage.getItem('intervalLastState'));
