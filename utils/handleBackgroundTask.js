@@ -66,7 +66,7 @@ const handleError = async (error) => {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: t('errorNotificationTitle'),
-      body: error.message,
+      body: error,
     },
     trigger: null, // Send immediately
   });
@@ -129,7 +129,7 @@ export const handleSession = async (host) => {
           // Check if login is successful, if not it means that password has been changed or captcha is wrong
           const error = $('#lblSonuclar');
           if (error.length) {
-            if (error.text().includes('Güvenlik kodu hatalı girildi !')) throw new CaptchaError(t('captchaError'));
+            if (error.text().includes('Güvenlik kodu hatalı girildi !')) throw new CaptchaError(t('captchaError')); 
             throw new Error(t('loginError'));
           }
 
@@ -179,7 +179,6 @@ const handleMarks = async (host) => {
 
     // If there are no differences, no marks are out yet
     if (!aciklanmisDersler.length) {
-      console.log('No marks are out yet');
       return;
     } else {
       // If there are differences, send notification

@@ -76,7 +76,7 @@
     "finalized": "finalized!"
   },
   "handleBackgroundTask": {
-    "errorNotificationTitle": "Error",
+    "errorNotificationTitle": "Error", 
     "loginError": "Your password has been changed. Please login again.",
     "captchaError": "Captcha error. Please login again.",
     "sessionExpiredError": "Session has expired.",
