@@ -118,6 +118,7 @@ export const handleSession = async (host) => {
               headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 Cookie: cookies,
+                Referer: `${host}/oibs/ogrenci/login.aspx`,
               },
               withCredentials: false,
             },

@@ -130,6 +130,7 @@ const Login = ({ navigation }) => {
                 headers: {
                   "Content-Type": "application/x-www-form-urlencoded",
                   Cookie: cookies,
+                  Referer: `${selectedUniversity.host}/oibs/ogrenci/login.aspx`
                 },
                 withCredentials: false,
               }
