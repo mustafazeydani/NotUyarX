@@ -66,7 +66,7 @@ const handleError = async (error) => {
   await Notifications.scheduleNotificationAsync({
     content: {
       title: t('errorNotificationTitle'),
-      body: error,
+      body: error.message,
     },
     trigger: null, // Send immediately
   });
@@ -228,8 +228,10 @@ export const handleSessionAndMarks = async () => {
   });
   try {
     const isSessionActive = JSON.parse(await AsyncStorage.getItem('isSessionActive'));
+    const intervalDuration = JSON.parse(await AsyncStorage.getItem('intervalDuration'));
     const host = JSON.parse(await AsyncStorage.getItem('selectedUniversity')).host;
-    if (!isSessionActive) {
+    
+    if (!isSessionActive || intervalDuration >= 9) {
       await handleSession(host);
     }
     await handleMarks(host);

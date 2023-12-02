@@ -2,6 +2,9 @@ import axios from 'axios';
 import Cheerio from 'react-native-cheerio';
 import { submitInformation, SessionExpiredError } from './utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import i18n from '../components/I18n.js';
+
+const t = (key) => i18n.t(`handleBackgroundTask.${key}`);
 
 export const getMarks = async (host, path, cookies, mainUrl) => {
   // Get not list

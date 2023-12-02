@@ -25,7 +25,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import i18n from "../components/I18n.js";
 import { TextInput } from "react-native-gesture-handler";
-import { BACKGROUND_FETCH_TASK, AD_KEYWORDS } from "../utils/constants";
+import { BACKGROUND_FETCH_TASK } from "../utils/constants";
 import * as TaskManager from "expo-task-manager";
 
 setNotificationHandler();
@@ -34,7 +34,6 @@ defineTask();
 export default function MarksAlert({ navigation }) {
   const t = (key) => i18n.t(`MarksAlert.${key}`);
   const [isIntervalOn, setIsIntervalOn] = useState(null);
-  const [isAdReady, setIsAdReady] = useState(false);
   const [intervalDuration, setIntervalDuration] = useState('30'); // Default interval duration 
   const [customIntervalDuration, setCustomIntervalDuration] = useState('');
   const [selectedOption, setSelectedOption] = useState(2); // For styling the selected option
@@ -122,10 +121,7 @@ export default function MarksAlert({ navigation }) {
 
   // Check if all marks are completed before starting the interval
   const checkCompleted = (dersler) => {
-    dersler.forEach((item) => {
-      if (item.durum === "Sonuçlandırılmadı") return false;
-    });
-    return true;
+    return dersler.every((item) => item.durum === "	Sonuçlandırıldı");
   };
 
   // Handle select interval duration option
@@ -208,14 +204,14 @@ export default function MarksAlert({ navigation }) {
         if (dersler.length === 0) 
           setMessage(i18n.t(`Main.messageRegisterCourse`));
         
-        // else if (checkCompleted(dersler)) {
-          // setMessage(t("messageAllCompleted"));
+        else if (checkCompleted(dersler))
+          setMessage(t("messageAllCompleted"));
 
         // if(isAdReady) {
         //   interstitial.show();
         //   setIsAdReady(false);
         // }
-        // else
+        else
           startInterval();
       }
     }
@@ -231,8 +227,10 @@ export default function MarksAlert({ navigation }) {
   useEffect(() => {
     TaskManager.isTaskRegisteredAsync(BACKGROUND_FETCH_TASK).then((res) => {
       if (isIntervalOn === true && !res) {
+        AsyncStorage.setItem("intervalDuration", intervalDuration);
         registerBackgroundFetchAsync(Number(intervalDuration));
       } else if (isIntervalOn === false && res) {
+        AsyncStorage.removeItem("intervalDuration");
         unregisterBackgroundFetchAsync();
       }
     });
