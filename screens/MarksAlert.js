@@ -121,7 +121,7 @@ export default function MarksAlert({ navigation }) {
 
   // Check if all marks are completed before starting the interval
   const checkCompleted = (dersler) => {
-    return dersler.every((item) => item.durum === "	Sonuçlandırıldı");
+    return dersler.every((item) => item.durum === "Sonuçlandırıldı");
   };
 
   // Handle select interval duration option
