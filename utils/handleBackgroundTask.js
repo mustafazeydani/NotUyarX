@@ -3,7 +3,7 @@ import * as BackgroundFetch from 'expo-background-fetch';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as SecureStore from 'expo-secure-store';
 import * as Notifications from 'expo-notifications';
-import * as Network from 'expo-network';
+import { fetch } from "@react-native-community/netinfo";
 import axios from 'axios';
 import Cheerio from 'react-native-cheerio';
 import JWT from 'expo-jwt';
@@ -81,7 +81,7 @@ const handleError = async (error) => {
 
 export const handleSession = async (host) => {
   try {
-    const networkState = await Network.getNetworkStateAsync();
+    const networkState = await fetch();
     if (!networkState.isConnected) throw new NetworkError(t('networkError'))
 
     const studentId = JSON.parse(await SecureStore.getItemAsync('inputs')).studentId;
@@ -230,8 +230,8 @@ const handleMarks = async (host) => {
 
 export const handleSessionAndMarks = async () => {
   try {
-    const networkState = await Network.getNetworkStateAsync();
-    if (!networkState.isConnected) throw new NetworkError(t('networkError'));
+    const networkState = await fetch();
+    if (!networkState.isConnected) throw new NetworkError(t('networkError'))
   
     notificationId = await Notifications.scheduleNotificationAsync({
       content: {
