@@ -80,6 +80,7 @@
     "loginError": "Your password has been changed. Please login again.",
     "captchaError": "Captcha error. Please login again.",
     "sessionExpiredError": "Session has expired.",
-    "checkingMarks": "Checking Marks..."
+    "checkingMarks": "Checking Marks...",
+    "restart": "Please restart the marks alert."
   }
 }

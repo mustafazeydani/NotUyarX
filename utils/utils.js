@@ -17,6 +17,13 @@ export class CaptchaError extends Error {
   }
 }
 
+export class LoginError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "LoginError";
+  }
+}
+
 export const clearAllExceptOne = async (keyToPreserve) => {
   const allKeys = await AsyncStorage.getAllKeys();
   const keysToRemove = allKeys.filter(key => key !== keyToPreserve);

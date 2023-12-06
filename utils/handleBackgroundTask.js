@@ -14,6 +14,7 @@ import {
   compareArrayWithJson,
   notNotification,
   clearAllExceptOne,
+  LoginError,
 } from './utils';
 import { getMarks, getGPAInfo } from './requests';
 import { BACKGROUND_FETCH_TASK, SECRET_KEY } from './constants';
@@ -52,21 +53,24 @@ export const unregisterBackgroundFetchAsync = async () => {
 };
 
 const handleError = async (error) => {
-  await SecureStore.deleteItemAsync('inputs');
+  if(error instanceof LoginError) {
+    await SecureStore.deleteItemAsync('inputs');
+    await clearAllExceptOne('lang');
+  }
 
   const stickyNotificationId = JSON.parse(await AsyncStorage.getItem('stickyNotificationId'));
   if (stickyNotificationId !== null) await Notifications.dismissNotificationAsync(stickyNotificationId);
 
+  await AsyncStorage.deleteItemAsync('isSessionActive');
+  await AsyncStorage.deleteItemAsync('intervalLastState');
   unregisterBackgroundFetchAsync();
-
-  await clearAllExceptOne('lang');
 
   Notifications.dismissNotificationAsync(notificationId);
 
   await Notifications.scheduleNotificationAsync({
     content: {
       title: t('errorNotificationTitle'),
-      body: error.message,
+      body: error instanceof LoginError? error.message : `${error.message}\n${t('restart')}`,
     },
     trigger: null, // Send immediately
   });
@@ -130,7 +134,7 @@ export const handleSession = async (host) => {
           const error = $('#lblSonuclar');
           if (error.length) {
             if (error.text().includes('Güvenlik kodu hatalı girildi !')) throw new CaptchaError(t('captchaError')); 
-            throw new Error(t('loginError'));
+            throw new LoginError(t('loginError'));
           }
 
           // Get not list path and mainUrl
