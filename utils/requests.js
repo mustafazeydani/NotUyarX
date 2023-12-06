@@ -100,6 +100,7 @@ export const getMarks = async (host, path, cookies, mainUrl) => {
         durumu: durumu[i] ? durumu[i] : '',
       });
     }
+
     return notList;
   }
 };

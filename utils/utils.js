@@ -31,9 +31,9 @@ export function compareArrayWithJson(notList, currentMarks) {
       let hasDifference = false;
       let differingKeysAndObjs = [];
       for (const key in obj1) {
-        if(key === 'sinavlar') {  
+        if(key === 'sinavlar') {
           for (const examObject of obj1[key]) {
-            const examObject2 = obj2[key].find(o => o.sinavAdi === examObject.sinavAdi);
+            const examObject2 = obj2[key].find(o => o.sinavAdi === examObject.sinavAdi); // Find the exam object with the same name
             if (examObject2) {
               for (const key2 in examObject) {
                 if (examObject.hasOwnProperty(key2) && examObject[key2] !== examObject2[key2]) {
@@ -41,6 +41,10 @@ export function compareArrayWithJson(notList, currentMarks) {
                   differingKeysAndObjs.push(examObject);
                 }
               }
+            }
+            else {
+              hasDifference = true;
+              differingKeysAndObjs.push(examObject);
             }
           }
         }
