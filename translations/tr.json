@@ -81,6 +81,7 @@
     "captchaError": "Captcha hatalı. Lütfen tekrar deneyin.",
     "sessionExpiredError": "Oturumun süresi doldu",
     "checkingMarks": "Notlar kontrol ediliyor...",
-    "restart": "Not Uyarısıyı yeniden başlatın"
+    "restart": "Not Uyarısıyı yeniden başlatın",
+    "networkError": "İnternet bağlantısı yok"
   }
 }

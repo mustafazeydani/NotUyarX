@@ -24,6 +24,13 @@ export class LoginError extends Error {
   }
 }
 
+export class NetworkError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "NetworkError";
+  }
+}
+
 export const clearAllExceptOne = async (keyToPreserve) => {
   const allKeys = await AsyncStorage.getAllKeys();
   const keysToRemove = allKeys.filter(key => key !== keyToPreserve);

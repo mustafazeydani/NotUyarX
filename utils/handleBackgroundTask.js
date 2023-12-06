@@ -3,6 +3,7 @@ import * as BackgroundFetch from 'expo-background-fetch';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as SecureStore from 'expo-secure-store';
 import * as Notifications from 'expo-notifications';
+import * as Network from 'expo-network';
 import axios from 'axios';
 import Cheerio from 'react-native-cheerio';
 import JWT from 'expo-jwt';
@@ -15,6 +16,7 @@ import {
   notNotification,
   clearAllExceptOne,
   LoginError,
+  NetworkError
 } from './utils';
 import { getMarks, getGPAInfo } from './requests';
 import { BACKGROUND_FETCH_TASK, SECRET_KEY } from './constants';
@@ -53,6 +55,7 @@ export const unregisterBackgroundFetchAsync = async () => {
 };
 
 const handleError = async (error) => {
+  if(error instanceof NetworkError) return;
   if(error instanceof LoginError) {
     await SecureStore.deleteItemAsync('inputs');
     await clearAllExceptOne('lang');
@@ -61,8 +64,8 @@ const handleError = async (error) => {
   const stickyNotificationId = JSON.parse(await AsyncStorage.getItem('stickyNotificationId'));
   if (stickyNotificationId !== null) await Notifications.dismissNotificationAsync(stickyNotificationId);
 
-  await AsyncStorage.deleteItemAsync('isSessionActive');
-  await AsyncStorage.deleteItemAsync('intervalLastState');
+  await AsyncStorage.removeItem('isSessionActive');
+  await AsyncStorage.removeItem('intervalLastState');
   unregisterBackgroundFetchAsync();
 
   Notifications.dismissNotificationAsync(notificationId);
@@ -77,6 +80,9 @@ const handleError = async (error) => {
 };
 
 export const handleSession = async (host) => {
+  const networkState = await Network.getNetworkStateAsync();
+  if (!networkState.isConnected) throw new NetworkError(t('networkError'))
+  
   try {
     const studentId = JSON.parse(await SecureStore.getItemAsync('inputs')).studentId;
     const password = JSON.parse(await SecureStore.getItemAsync('inputs')).password;
@@ -223,6 +229,9 @@ const handleMarks = async (host) => {
 };
 
 export const handleSessionAndMarks = async () => {
+  const networkState = await Network.getNetworkStateAsync();
+  if (!networkState.isConnected) throw new NetworkError(t('networkError'));
+
   notificationId = await Notifications.scheduleNotificationAsync({
     content: {
       title: t('checkingMarks'),

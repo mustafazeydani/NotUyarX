@@ -81,6 +81,7 @@
     "captchaError": "Captcha error. Please login again.",
     "sessionExpiredError": "Session has expired.",
     "checkingMarks": "Checking Marks...",
-    "restart": "Please restart the marks alert."
+    "restart": "Please restart the marks alert.",
+    "networkError": "Network error. Please check your internet connection." 
   }
 }

@@ -136,7 +136,7 @@ export default function Marks() {
       ).host;
 
       await handleSession(host);
-
+      
       const notListPath = JSON.parse(
         await SecureStore.getItemAsync("notListPath")
       );
