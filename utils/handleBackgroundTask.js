@@ -80,10 +80,10 @@ const handleError = async (error) => {
 };
 
 export const handleSession = async (host) => {
-  const networkState = await Network.getNetworkStateAsync();
-  if (!networkState.isConnected) throw new NetworkError(t('networkError'))
-  
   try {
+    const networkState = await Network.getNetworkStateAsync();
+    if (!networkState.isConnected) throw new NetworkError(t('networkError'))
+
     const studentId = JSON.parse(await SecureStore.getItemAsync('inputs')).studentId;
     const password = JSON.parse(await SecureStore.getItemAsync('inputs')).password;
 
@@ -229,17 +229,18 @@ const handleMarks = async (host) => {
 };
 
 export const handleSessionAndMarks = async () => {
-  const networkState = await Network.getNetworkStateAsync();
-  if (!networkState.isConnected) throw new NetworkError(t('networkError'));
-
-  notificationId = await Notifications.scheduleNotificationAsync({
-    content: {
-      title: t('checkingMarks'),
-      sound: false,
-    },
-    trigger: null, // Show immediately
-  });
   try {
+    const networkState = await Network.getNetworkStateAsync();
+    if (!networkState.isConnected) throw new NetworkError(t('networkError'));
+  
+    notificationId = await Notifications.scheduleNotificationAsync({
+      content: {
+        title: t('checkingMarks'),
+        sound: false,
+      },
+      trigger: null, // Show immediately
+    });
+
     const isSessionActive = JSON.parse(await AsyncStorage.getItem('isSessionActive'));
     const intervalDuration = JSON.parse(await AsyncStorage.getItem('intervalDuration'));
     const host = JSON.parse(await AsyncStorage.getItem('selectedUniversity')).host;
